@@ -37,9 +37,9 @@ int Decremento;
 
 //interrupción
 void __interrupt () isr(void){
-    if (INTCONbits.RBIF == 1){
+    if (INTCONbits.RBIF == 1){//Interrupcion de push button del puerto b
         if(PORTBbits.RB7 == 0){
-            Aumento = 1;
+            Aumento = 1;//variables para el aumento o decremento del puerto
         }
         else if (PORTBbits.RB6 == 0){
             Decremento = 1;
@@ -92,16 +92,16 @@ void SET(void){
     I2C_Slave_Init(0x32);
 }
 
-void contador (void){
-    if (PORTBbits.RB7 == 1 && Aumento == 1){
-        if (VALOR < 15){
-            VALOR++;
+void contador (void){//contaador de 4 bits
+    if (PORTBbits.RB7 == 1 && Aumento == 1){//revisa si el push 1 esta en 1 y si su variable esta encendida
+        if (VALOR < 15){//si el valor es menor a 15
+            VALOR++;//suma 1 al valor
         }
         else {
-            VALOR = 0;
+            VALOR = 0;//reinicia el valor si ya es mayor a 15
         }
-        Aumento = 0;
-    }
+        Aumento = 0;//limpia la variable
+    }//lo mismo para el decremento solo que reinicia si es 15 y le resta 1 al prgrama
     else if (PORTBbits.RB6 == 1 && Decremento == 1){
         if (VALOR > 0){
             VALOR--;
@@ -117,6 +117,6 @@ void main(void) {
     SET();
     while(1){
     contador();
-    PORTA = VALOR;
+    PORTA = VALOR;//Coloca el valor en el PORTA y en el buffer en la interrupcion
     }
 }

@@ -584,8 +584,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FOTO.c: 88:     PIR1bits.ADIF = 0;
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "90
-[; ;FOTO.c: 90:     I2C_Slave_Init(0x30);
-[e ( _I2C_Slave_Init (1 -> -> 48 `i `uc ]
+[; ;FOTO.c: 90:     I2C_Slave_Init(0x34);
+[e ( _I2C_Slave_Init (1 -> -> 52 `i `uc ]
 "92
 [; ;FOTO.c: 92:     ADCON0bits.GO_DONE = 1;
 [e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]

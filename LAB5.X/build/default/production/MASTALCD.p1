@@ -42,6 +42,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45
 [; ;./8 bits.h: 45: void POTENCIOMETRO (uint8_t result);
 [v _POTENCIOMETRO `(v ~T0 @X0 0 ef1`uc ]
+"46
+[; ;./8 bits.h: 46: void FOTORESIS (uint8_t result);
+[v _FOTORESIS `(v ~T0 @X0 0 ef1`uc ]
 "6 MASTALCD.c
 [p x FOSC = INTRC_CLKOUT ]
 "7
@@ -307,8 +310,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MASTALCD.c: 31: int CONT;
 [v _CONT `i ~T0 @X0 1 e ]
 "32
-[; ;MASTALCD.c: 32: int TEMP;
-[v _TEMP `i ~T0 @X0 1 e ]
+[; ;MASTALCD.c: 32: int FOTO;
+[v _FOTO `i ~T0 @X0 1 e ]
 "35
 [; ;MASTALCD.c: 35: void Properties (void){
 [v _Properties `(v ~T0 @X0 1 ef ]
@@ -351,83 +354,97 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MASTALCD.c: 46:     lcddirection(5,2,"18027");
 [e ( _lcddirection (3 , , -> 5 `i -> 2 `i :s 2C ]
 "47
-[; ;MASTALCD.c: 47:     delay_ms(500);
-[e ( _delay_ms (1 -> 500 `i ]
+[; ;MASTALCD.c: 47:     delay_ms(130);
+[e ( _delay_ms (1 -> 130 `i ]
 "48
-[; ;MASTALCD.c: 48:     lcddirection(0,1," ADC CONT FOTO");
+[; ;MASTALCD.c: 48:     lcddirection(0,1,"LABORATORIO 5  ");
 [e ( _lcddirection (3 , , -> 0 `i -> 1 `i :s 3C ]
 "49
-[; ;MASTALCD.c: 49:     lcddirection(0,2,"                ");
-[e ( _lcddirection (3 , , -> 0 `i -> 2 `i :s 4C ]
+[; ;MASTALCD.c: 49:     lcddirection(5,2,"I2C  ");
+[e ( _lcddirection (3 , , -> 5 `i -> 2 `i :s 4C ]
 "50
-[; ;MASTALCD.c: 50:     Properties();
-[e ( _Properties ..  ]
+[; ;MASTALCD.c: 50:     delay_ms(500);
+[e ( _delay_ms (1 -> 500 `i ]
 "51
-[; ;MASTALCD.c: 51:     while(1){
+[; ;MASTALCD.c: 51:     lcddirection(0,1,"ADC  COUNTER FOT");
+[e ( _lcddirection (3 , , -> 0 `i -> 1 `i :s 5C ]
+"52
+[; ;MASTALCD.c: 52:     lcddirection(0,2," .  V       .  V");
+[e ( _lcddirection (3 , , -> 0 `i -> 2 `i :s 6C ]
+"53
+[; ;MASTALCD.c: 53:     Properties();
+[e ( _Properties ..  ]
+"55
+[; ;MASTALCD.c: 55:     while(1){
 [e :U 141 ]
 {
-"52
-[; ;MASTALCD.c: 52:     I2C_Master_Start();
+"56
+[; ;MASTALCD.c: 56:         I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"53
-[; ;MASTALCD.c: 53:     I2C_Master_Write(0x31);
-[e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
-"54
-[; ;MASTALCD.c: 54:     POT = I2C_Master_Read(0);
-[e = _POT -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
-"55
-[; ;MASTALCD.c: 55:     I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
 "57
-[; ;MASTALCD.c: 57:     delay_ms(20);
-[e ( _delay_ms (1 -> 20 `i ]
+[; ;MASTALCD.c: 57:         I2C_Master_Write(0x31);
+[e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
+"58
+[; ;MASTALCD.c: 58:         POT = I2C_Master_Read(0);
+[e = _POT -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
 "59
-[; ;MASTALCD.c: 59:     I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"60
-[; ;MASTALCD.c: 60:     I2C_Master_Write(0x33);
-[e ( _I2C_Master_Write (1 -> -> 51 `i `ui ]
+[; ;MASTALCD.c: 59:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
 "61
-[; ;MASTALCD.c: 61:     CONT = I2C_Master_Read(0);
-[e = _CONT -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
-"62
-[; ;MASTALCD.c: 62:     I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"64
-[; ;MASTALCD.c: 64:     delay_ms(20);
+[; ;MASTALCD.c: 61:         delay_ms(20);
 [e ( _delay_ms (1 -> 20 `i ]
-"66
-[; ;MASTALCD.c: 66:     I2C_Master_Start();
+"63
+[; ;MASTALCD.c: 63:         I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"67
-[; ;MASTALCD.c: 67:     I2C_Master_Write(0x55);
-[e ( _I2C_Master_Write (1 -> -> 85 `i `ui ]
-"68
-[; ;MASTALCD.c: 68:     TEMP = I2C_Master_Read(0);
-[e = _TEMP -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
-"69
-[; ;MASTALCD.c: 69:     I2C_Master_Stop();
+"64
+[; ;MASTALCD.c: 64:         I2C_Master_Write(0x33);
+[e ( _I2C_Master_Write (1 -> -> 51 `i `ui ]
+"65
+[; ;MASTALCD.c: 65:         CONT = I2C_Master_Read(0);
+[e = _CONT -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
+"66
+[; ;MASTALCD.c: 66:         I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"70
-[; ;MASTALCD.c: 70:     delay_ms(20);
+"68
+[; ;MASTALCD.c: 68:         delay_ms(20);
 [e ( _delay_ms (1 -> 20 `i ]
+"70
+[; ;MASTALCD.c: 70:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"71
+[; ;MASTALCD.c: 71:         I2C_Master_Write(0x35);
+[e ( _I2C_Master_Write (1 -> -> 53 `i `ui ]
 "72
-[; ;MASTALCD.c: 72:     LCDCONT(6,CONT);
-[e ( _LCDCONT (2 , -> 6 `i _CONT ]
+[; ;MASTALCD.c: 72:         FOTO = I2C_Master_Read(0);
+[e = _FOTO -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
 "73
-[; ;MASTALCD.c: 73:     POTENCIOMETRO(POT);
-[e ( _POTENCIOMETRO (1 -> _POT `uc ]
+[; ;MASTALCD.c: 73:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
 "74
-[; ;MASTALCD.c: 74:     }
+[; ;MASTALCD.c: 74:         delay_ms(20);
+[e ( _delay_ms (1 -> 20 `i ]
+"76
+[; ;MASTALCD.c: 76:         LCDCONT(7,CONT);
+[e ( _LCDCONT (2 , -> 7 `i _CONT ]
+"77
+[; ;MASTALCD.c: 77:         POTENCIOMETRO(POT);
+[e ( _POTENCIOMETRO (1 -> _POT `uc ]
+"78
+[; ;MASTALCD.c: 78:         FOTORESIS(FOTO);
+[e ( _FOTORESIS (1 -> _FOTO `uc ]
+"79
+[; ;MASTALCD.c: 79:     }
 }
 [e :U 140 ]
 [e $U 141  ]
 [e :U 142 ]
-"75
-[; ;MASTALCD.c: 75: }
+"80
+[; ;MASTALCD.c: 80: }
 [e :UE 139 ]
 }
 [a 1C 69 115 116 117 97 114 100 111 32 77 97 110 99 105 111 0 ]
-[a 3C 32 65 68 67 32 67 79 78 84 32 70 79 84 79 0 ]
+[a 6C 32 46 32 32 86 32 32 32 32 32 32 32 46 32 32 86 0 ]
+[a 5C 65 68 67 32 32 67 79 85 78 84 69 82 32 70 79 84 0 ]
 [a 2C 49 56 48 50 55 0 ]
-[a 4C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
+[a 4C 73 50 67 32 32 0 ]
+[a 3C 76 65 66 79 82 65 84 79 82 73 79 32 53 32 32 0 ]

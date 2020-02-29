@@ -25,7 +25,7 @@
 #include "ADC.h"
 #include "I2C.h"
 
-
+//El codigo implementado en el ADC de este es exactamente el mismo que el del pot de ADc ya que tienen la misma funcion.
 
 #define _XTAL_FERQ 8000000
 int Coversion;
@@ -87,7 +87,7 @@ void Properties (void){
     PIE1bits.ADIE = 1;
     PIR1bits.ADIF = 0;
     
-    I2C_Slave_Init(0x30);
+    I2C_Slave_Init(0x34);
     
     ADCON0bits.GO_DONE = 1;
     

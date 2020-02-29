@@ -26,12 +26,12 @@
 #include "8 bits.h"
 
 #define _XTAL_FREQ 8000000
-
+//Variables
 int POT;
 int CONT;
-int TEMP;
+int FOTO;
 
-
+//Configuracion del pic
 void Properties (void){
     ANSEL = 0;
     ANSELH = 0;
@@ -42,18 +42,21 @@ void Properties (void){
 void main(void) {
     LCDvalue();        // inicio de la LCD
     clean();        // limpieza de la LCS
-    lcddirection(0,1,"Estuardo Mancio");     //Mensaje inicial
+    lcddirection(0,1,"Estuardo Mancio");     
     lcddirection(5,2,"18027");             
+    delay_ms(130);
+    lcddirection(0,1,"LABORATORIO 5  ");     
+    lcddirection(5,2,"I2C  ");             
     delay_ms(500);
     lcddirection(0,1,"ADC  COUNTER FOT");
     lcddirection(0,2," .  V       .  V");
     Properties();
     
     while(1){
-        I2C_Master_Start();
-        I2C_Master_Write(0x31);
-        POT = I2C_Master_Read(0);
-        I2C_Master_Stop();
+        I2C_Master_Start();//Inicializacion del master de a libreria
+        I2C_Master_Write(0x31);//revision de la direccion del pic al que se le esta comunicando
+        POT = I2C_Master_Read(0);//lectura del buffer del I2C
+        I2C_Master_Stop();//parar la comunicacion del I2C con todos lo pics
 
         delay_ms(20);
 
@@ -66,13 +69,13 @@ void main(void) {
 
         I2C_Master_Start();
         I2C_Master_Write(0x35);
-        TEMP = I2C_Master_Read(0);
+        FOTO = I2C_Master_Read(0);
         I2C_Master_Stop();
         delay_ms(20);
 
-        LCDCONT(7,CONT);
+        LCDCONT(7,CONT);//Funciones de LCD para mappear los valor del I2C
         POTENCIOMETRO(POT);
-        
+        FOTORESIS(FOTO);
     }
 }
 

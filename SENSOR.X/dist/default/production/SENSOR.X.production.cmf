@@ -24,7 +24,7 @@ cstackBANK0 BANK0 1 20 20 4 1
 intentry CODE 0 4 4 8 2
 bssBANK0 BANK0 1 24 24 2 1
 bssCOMMON COMMON 1 76 76 4 1
-$C:\Users\egman\AppData\Local\Temp\s8o8.o
+$C:\Users\egman\AppData\Local\Temp\sci4.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 0 2007 2007 2 2
@@ -74,19 +74,19 @@ STRING 1BE-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\SENSOR.X.production.o
-F cinit CODE >804:C:\Users\egman\AppData\Local\Temp\s8o8.s
-F cinit CODE >807:C:\Users\egman\AppData\Local\Temp\s8o8.s
-F cinit CODE >827:C:\Users\egman\AppData\Local\Temp\s8o8.s
-10 cinit CODE >828:C:\Users\egman\AppData\Local\Temp\s8o8.s
-11 cinit CODE >829:C:\Users\egman\AppData\Local\Temp\s8o8.s
-12 cinit CODE >830:C:\Users\egman\AppData\Local\Temp\s8o8.s
-13 cinit CODE >833:C:\Users\egman\AppData\Local\Temp\s8o8.s
-14 cinit CODE >834:C:\Users\egman\AppData\Local\Temp\s8o8.s
-15 cinit CODE >835:C:\Users\egman\AppData\Local\Temp\s8o8.s
-16 cinit CODE >836:C:\Users\egman\AppData\Local\Temp\s8o8.s
-17 cinit CODE >842:C:\Users\egman\AppData\Local\Temp\s8o8.s
-17 cinit CODE >844:C:\Users\egman\AppData\Local\Temp\s8o8.s
-18 cinit CODE >845:C:\Users\egman\AppData\Local\Temp\s8o8.s
+F cinit CODE >804:C:\Users\egman\AppData\Local\Temp\sci4.s
+F cinit CODE >807:C:\Users\egman\AppData\Local\Temp\sci4.s
+F cinit CODE >827:C:\Users\egman\AppData\Local\Temp\sci4.s
+10 cinit CODE >828:C:\Users\egman\AppData\Local\Temp\sci4.s
+11 cinit CODE >829:C:\Users\egman\AppData\Local\Temp\sci4.s
+12 cinit CODE >830:C:\Users\egman\AppData\Local\Temp\sci4.s
+13 cinit CODE >833:C:\Users\egman\AppData\Local\Temp\sci4.s
+14 cinit CODE >834:C:\Users\egman\AppData\Local\Temp\sci4.s
+15 cinit CODE >835:C:\Users\egman\AppData\Local\Temp\sci4.s
+16 cinit CODE >836:C:\Users\egman\AppData\Local\Temp\sci4.s
+17 cinit CODE >842:C:\Users\egman\AppData\Local\Temp\sci4.s
+17 cinit CODE >844:C:\Users\egman\AppData\Local\Temp\sci4.s
+18 cinit CODE >845:C:\Users\egman\AppData\Local\Temp\sci4.s
 4 intentry CODE >41:C:\Users\egman\Desktop\LAB5\SENSOR.X\FOTO.c
 BE text5 CODE >41:C:\Users\egman\Desktop\LAB5\SENSOR.X\FOTO.c
 BE text5 CODE >43:C:\Users\egman\Desktop\LAB5\SENSOR.X\FOTO.c
@@ -220,21 +220,21 @@ _BF 4A0 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 ADC@a 74 0 COMMON 1 cstackCOMMON dist/default/production\SENSOR.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\SENSOR.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\egman\AppData\Local\Temp\s8o8.o
+___sp 0 0 STACK 2 stack C:\Users\egman\AppData\Local\Temp\sci4.o
 _main 362 0 CODE 0 maintext dist/default/production\SENSOR.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 __size_of_Properties 0 0 ABS 0 - dist/default/production\SENSOR.X.production.o
-start 18 0 CODE 0 init C:\Users\egman\AppData\Local\Temp\s8o8.o
+start 18 0 CODE 0 init C:\Users\egman\AppData\Local\Temp\sci4.o
 __size_of_main 0 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 _Coversion 76 0 COMMON 1 bssCOMMON dist/default/production\SENSOR.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\s8o8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\s8o8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\s8o8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\s8o8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\s8o8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\s8o8.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\sci4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\sci4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\sci4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\sci4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\sci4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\egman\AppData\Local\Temp\sci4.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -246,8 +246,8 @@ _ADRESH 1E 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 _SSPCONbits 14 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 __CFG_FOSC$INTRC_CLKOUT 0 0 ABS 0 - dist/default/production\SENSOR.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\egman\AppData\Local\Temp\s8o8.o
-___stacklo 0 0 ABS 0 - C:\Users\egman\AppData\Local\Temp\s8o8.o
+___stackhi 0 0 ABS 0 - C:\Users\egman\AppData\Local\Temp\sci4.o
+___stacklo 0 0 ABS 0 - C:\Users\egman\AppData\Local\Temp\sci4.o
 _I2C_Slave_Init 32E 0 CODE 0 text3 dist/default/production\SENSOR.X.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\SENSOR.X.production.o
@@ -258,7 +258,7 @@ _SSPBUF 13 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\SENSOR.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\egman\AppData\Local\Temp\s8o8.o
+___int_sp 0 0 STACK 2 stack C:\Users\egman\AppData\Local\Temp\sci4.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -308,7 +308,7 @@ __end_of_ADC 17C 0 CODE 0 text4 dist/default/production\SENSOR.X.production.o
 __end_of_isr 278 0 CODE 0 text5 dist/default/production\SENSOR.X.production.o
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\egman\AppData\Local\Temp\s8o8.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\egman\AppData\Local\Temp\sci4.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _PIE1bits 8C 0 ABS 0 - dist/default/production\SENSOR.X.production.o
 _Properties 2D6 0 CODE 0 text1 dist/default/production\SENSOR.X.production.o

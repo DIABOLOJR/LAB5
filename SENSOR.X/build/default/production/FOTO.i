@@ -2735,7 +2735,7 @@ void Properties (void){
     PIE1bits.ADIE = 1;
     PIR1bits.ADIF = 0;
 
-    I2C_Slave_Init(0x30);
+    I2C_Slave_Init(0x34);
 
     ADCON0bits.GO_DONE = 1;
 

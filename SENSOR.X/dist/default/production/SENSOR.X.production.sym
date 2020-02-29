@@ -176,7 +176,7 @@ cstackCOMMON 70 79 COMMON 70 1
 cstackBANK0 20 25 BANK0 20 1
 %locals
 dist/default/production\SENSOR.X.production.o
-C:\Users\egman\AppData\Local\Temp\s8o8.s
+C:\Users\egman\AppData\Local\Temp\sci4.s
 804 F 0 CODE 0
 807 F 0 CODE 0
 827 F 0 CODE 0

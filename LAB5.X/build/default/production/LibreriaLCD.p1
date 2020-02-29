@@ -548,7 +548,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 94:         case 0:
 [e :U 168 ]
 "95
-[; ;LibreriaLCD.c: 95:             lcddirection (x,2,"0");
+[; ;LibreriaLCD.c: 95:             lcddirection (x,2,"00");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 1C ]
 "96
 [; ;LibreriaLCD.c: 96:             break;
@@ -557,7 +557,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 97:         case 1:
 [e :U 169 ]
 "98
-[; ;LibreriaLCD.c: 98:             lcddirection (x,2,"1");
+[; ;LibreriaLCD.c: 98:             lcddirection (x,2,"01");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 2C ]
 "99
 [; ;LibreriaLCD.c: 99:             break;
@@ -566,7 +566,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 100:         case 2:
 [e :U 170 ]
 "101
-[; ;LibreriaLCD.c: 101:             lcddirection (x,2,"2");
+[; ;LibreriaLCD.c: 101:             lcddirection (x,2,"02");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 3C ]
 "102
 [; ;LibreriaLCD.c: 102:             break;
@@ -575,7 +575,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 103:         case 3:
 [e :U 171 ]
 "104
-[; ;LibreriaLCD.c: 104:             lcddirection (x,2,"3");
+[; ;LibreriaLCD.c: 104:             lcddirection (x,2,"03");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 4C ]
 "105
 [; ;LibreriaLCD.c: 105:             break;
@@ -584,7 +584,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 106:         case 4:
 [e :U 172 ]
 "107
-[; ;LibreriaLCD.c: 107:             lcddirection (x,2,"4");
+[; ;LibreriaLCD.c: 107:             lcddirection (x,2,"04");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 5C ]
 "108
 [; ;LibreriaLCD.c: 108:             break;
@@ -593,7 +593,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 109:         case 5:
 [e :U 173 ]
 "110
-[; ;LibreriaLCD.c: 110:             lcddirection (x,2,"5");
+[; ;LibreriaLCD.c: 110:             lcddirection (x,2,"05");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 6C ]
 "111
 [; ;LibreriaLCD.c: 111:             break;
@@ -602,7 +602,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 112:         case 6:
 [e :U 174 ]
 "113
-[; ;LibreriaLCD.c: 113:             lcddirection (x,2,"6");
+[; ;LibreriaLCD.c: 113:             lcddirection (x,2,"06");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 7C ]
 "114
 [; ;LibreriaLCD.c: 114:             break;
@@ -611,7 +611,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 115:         case 7:
 [e :U 175 ]
 "116
-[; ;LibreriaLCD.c: 116:             lcddirection (x,2,"7");
+[; ;LibreriaLCD.c: 116:             lcddirection (x,2,"07");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 8C ]
 "117
 [; ;LibreriaLCD.c: 117:             break;
@@ -620,7 +620,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 118:         case 8:
 [e :U 176 ]
 "119
-[; ;LibreriaLCD.c: 119:             lcddirection (x,2,"8");
+[; ;LibreriaLCD.c: 119:             lcddirection (x,2,"08");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 9C ]
 "120
 [; ;LibreriaLCD.c: 120:             break;
@@ -629,7 +629,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 121:         case 9:
 [e :U 177 ]
 "122
-[; ;LibreriaLCD.c: 122:             lcddirection (x,2,"9");
+[; ;LibreriaLCD.c: 122:             lcddirection (x,2,"09");
 [e ( _lcddirection (3 , , _x -> 2 `i :s 10C ]
 "123
 [; ;LibreriaLCD.c: 123:             break;
@@ -758,8 +758,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 156:     uint8_t centesimas = (((result %50)%5) -(((result %50)%5)%1))*2;
 [v _centesimas `uc ~T0 @X0 1 a ]
 [e = _centesimas -> * - % % -> _result `i -> 50 `i -> 5 `i % % % -> _result `i -> 50 `i -> 5 `i -> 1 `i -> 2 `i `uc ]
-[v F1346 `i ~T0 @X0 -> 3 `i s ]
-[i F1346
+[v F1348 `i ~T0 @X0 -> 3 `i s ]
+[i F1348
 :U ..
 "157
 [; ;LibreriaLCD.c: 157:     int numero[] = {unidades,decimas,centesimas};
@@ -769,7 +769,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _numero `i ~T0 @X0 -> 3 `i a ]
-[e = _numero F1346 ]
+[e = _numero F1348 ]
 [e ; = *U + &U _numero * -> -> -> 0 `i `ui `ux -> -> # *U &U _numero `ui `ux -> _unidades `i ; = *U + &U _numero * -> -> -> 1 `i `ui `ux -> -> # *U &U _numero `ui `ux -> _decimas `i = *U + &U _numero * -> -> -> 2 `i `ui `ux -> -> # *U &U _numero `ui `ux -> _centesimas `i ]
 "158
 [; ;LibreriaLCD.c: 158:     for (int i=0; i<3;i++){
@@ -937,43 +937,266 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LibreriaLCD.c: 200: }
 [e :UE 185 ]
 }
+"202
+[; ;LibreriaLCD.c: 202: void FOTORESIS (uint8_t result){
+[v _FOTORESIS `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _FOTORESIS ]
+[v _result `uc ~T0 @X0 1 r1 ]
+[f ]
 "203
-[; ;LibreriaLCD.c: 203: void clean (void){
+[; ;LibreriaLCD.c: 203:     if (result>=250){result = 250;}
+[e $ ! >= -> _result `i -> 250 `i 204  ]
+{
+[e = _result -> -> 250 `i `uc ]
+}
+[e :U 204 ]
+"204
+[; ;LibreriaLCD.c: 204:     uint8_t valor = 0;
+[v _valor `uc ~T0 @X0 1 a ]
+[e = _valor -> -> 0 `i `uc ]
+"205
+[; ;LibreriaLCD.c: 205:     uint8_t coordenada = 0;
+[v _coordenada `uc ~T0 @X0 1 a ]
+[e = _coordenada -> -> 0 `i `uc ]
+"206
+[; ;LibreriaLCD.c: 206:     uint8_t unidades = (result - (result % 50))/50;
+[v _unidades `uc ~T0 @X0 1 a ]
+[e = _unidades -> / - -> _result `i % -> _result `i -> 50 `i -> 50 `i `uc ]
+"207
+[; ;LibreriaLCD.c: 207:     uint8_t decimas = ((result %50) -((result %50)%5))/5;
+[v _decimas `uc ~T0 @X0 1 a ]
+[e = _decimas -> / - % -> _result `i -> 50 `i % % -> _result `i -> 50 `i -> 5 `i -> 5 `i `uc ]
+"208
+[; ;LibreriaLCD.c: 208:     uint8_t centesimas = (((result %50)%5) -(((result %50)%5)%1))*2;
+[v _centesimas `uc ~T0 @X0 1 a ]
+[e = _centesimas -> * - % % -> _result `i -> 50 `i -> 5 `i % % % -> _result `i -> 50 `i -> 5 `i -> 1 `i -> 2 `i `uc ]
+[v F1358 `i ~T0 @X0 -> 3 `i s ]
+[i F1358
+:U ..
+"209
+[; ;LibreriaLCD.c: 209:     int numero[] = {unidades,decimas,centesimas};
+-> 0 `i
+-> 0 `i
+-> 0 `i
+..
+]
+[v _numero `i ~T0 @X0 -> 3 `i a ]
+[e = _numero F1358 ]
+[e ; = *U + &U _numero * -> -> -> 0 `i `ui `ux -> -> # *U &U _numero `ui `ux -> _unidades `i ; = *U + &U _numero * -> -> -> 1 `i `ui `ux -> -> # *U &U _numero `ui `ux -> _decimas `i = *U + &U _numero * -> -> -> 2 `i `ui `ux -> -> # *U &U _numero `ui `ux -> _centesimas `i ]
+"210
+[; ;LibreriaLCD.c: 210:     for (int i=0; i<3;i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 3 `i 205  ]
+[e $U 206  ]
+[e :U 205 ]
+{
+"211
+[; ;LibreriaLCD.c: 211:         valor = numero[i];
+[e = _valor -> *U + &U _numero * -> -> _i `ui `ux -> -> # *U &U _numero `ui `ux `uc ]
+"212
+[; ;LibreriaLCD.c: 212:         if (i == 0) {
+[e $ ! == _i -> 0 `i 208  ]
+{
+"213
+[; ;LibreriaLCD.c: 213:             coordenada = 11;
+[e = _coordenada -> -> 11 `i `uc ]
+"214
+[; ;LibreriaLCD.c: 214:         }
+}
+[e :U 208 ]
+"215
+[; ;LibreriaLCD.c: 215:         if (i == 1) {
+[e $ ! == _i -> 1 `i 209  ]
+{
+"216
+[; ;LibreriaLCD.c: 216:             coordenada = 13;
+[e = _coordenada -> -> 13 `i `uc ]
+"217
+[; ;LibreriaLCD.c: 217:         }
+}
+[e :U 209 ]
+"218
+[; ;LibreriaLCD.c: 218:         if (i == 2) {
+[e $ ! == _i -> 2 `i 210  ]
+{
+"219
+[; ;LibreriaLCD.c: 219:             coordenada = 14;
+[e = _coordenada -> -> 14 `i `uc ]
+"220
+[; ;LibreriaLCD.c: 220:         }
+}
+[e :U 210 ]
+"221
+[; ;LibreriaLCD.c: 221:         if (valor == 0){
+[e $ ! == -> _valor `i -> 0 `i 211  ]
+{
+"222
+[; ;LibreriaLCD.c: 222:             lcddirection(coordenada,2,"0");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 28C ]
+"223
+[; ;LibreriaLCD.c: 223:         }
+}
+[e :U 211 ]
+"224
+[; ;LibreriaLCD.c: 224:         if (valor == 1){
+[e $ ! == -> _valor `i -> 1 `i 212  ]
+{
+"225
+[; ;LibreriaLCD.c: 225:             lcddirection(coordenada,2,"1");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 29C ]
+"226
+[; ;LibreriaLCD.c: 226:         }
+}
+[e :U 212 ]
+"227
+[; ;LibreriaLCD.c: 227:         if (valor == 2){
+[e $ ! == -> _valor `i -> 2 `i 213  ]
+{
+"228
+[; ;LibreriaLCD.c: 228:             lcddirection(coordenada,2,"2");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 30C ]
+"229
+[; ;LibreriaLCD.c: 229:         }
+}
+[e :U 213 ]
+"230
+[; ;LibreriaLCD.c: 230:         if (valor == 3){
+[e $ ! == -> _valor `i -> 3 `i 214  ]
+{
+"231
+[; ;LibreriaLCD.c: 231:             lcddirection(coordenada,2,"3");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 31C ]
+"232
+[; ;LibreriaLCD.c: 232:         }
+}
+[e :U 214 ]
+"233
+[; ;LibreriaLCD.c: 233:         if (valor == 4){
+[e $ ! == -> _valor `i -> 4 `i 215  ]
+{
+"234
+[; ;LibreriaLCD.c: 234:             lcddirection(coordenada,2,"4");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 32C ]
+"235
+[; ;LibreriaLCD.c: 235:         }
+}
+[e :U 215 ]
+"236
+[; ;LibreriaLCD.c: 236:         if (valor == 5){
+[e $ ! == -> _valor `i -> 5 `i 216  ]
+{
+"237
+[; ;LibreriaLCD.c: 237:             lcddirection(coordenada,2,"5");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 33C ]
+"238
+[; ;LibreriaLCD.c: 238:         }
+}
+[e :U 216 ]
+"239
+[; ;LibreriaLCD.c: 239:         if (valor == 6){
+[e $ ! == -> _valor `i -> 6 `i 217  ]
+{
+"240
+[; ;LibreriaLCD.c: 240:             lcddirection(coordenada,2,"6");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 34C ]
+"241
+[; ;LibreriaLCD.c: 241:         }
+}
+[e :U 217 ]
+"242
+[; ;LibreriaLCD.c: 242:         if (valor == 7){
+[e $ ! == -> _valor `i -> 7 `i 218  ]
+{
+"243
+[; ;LibreriaLCD.c: 243:             lcddirection(coordenada,2,"7");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 35C ]
+"244
+[; ;LibreriaLCD.c: 244:         }
+}
+[e :U 218 ]
+"245
+[; ;LibreriaLCD.c: 245:         if (valor == 8){
+[e $ ! == -> _valor `i -> 8 `i 219  ]
+{
+"246
+[; ;LibreriaLCD.c: 246:             lcddirection(coordenada,2,"8");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 36C ]
+"247
+[; ;LibreriaLCD.c: 247:         }
+}
+[e :U 219 ]
+"248
+[; ;LibreriaLCD.c: 248:         if (valor == 9){
+[e $ ! == -> _valor `i -> 9 `i 220  ]
+{
+"249
+[; ;LibreriaLCD.c: 249:             lcddirection(coordenada,2,"9");
+[e ( _lcddirection (3 , , -> _coordenada `i -> 2 `i :s 37C ]
+"250
+[; ;LibreriaLCD.c: 250:         }
+}
+[e :U 220 ]
+"251
+[; ;LibreriaLCD.c: 251:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 3 `i 205  ]
+[e :U 206 ]
+}
+"252
+[; ;LibreriaLCD.c: 252: }
+[e :UE 203 ]
+}
+"255
+[; ;LibreriaLCD.c: 255: void clean (void){
 [v _clean `(v ~T0 @X0 1 ef ]
 {
 [e :U _clean ]
 [f ]
-"204
-[; ;LibreriaLCD.c: 204:     Control(0x01);
+"256
+[; ;LibreriaLCD.c: 256:     Control(0x01);
 [e ( _Control (1 -> -> 1 `i `uc ]
-"205
-[; ;LibreriaLCD.c: 205: }
-[e :UE 203 ]
+"257
+[; ;LibreriaLCD.c: 257: }
+[e :UE 221 ]
 }
-[a 10C 57 0 ]
+[a 10C 48 57 0 ]
 [a 27C 57 0 ]
-[a 9C 56 0 ]
+[a 37C 57 0 ]
+[a 9C 48 56 0 ]
 [a 26C 56 0 ]
-[a 8C 55 0 ]
+[a 36C 56 0 ]
+[a 8C 48 55 0 ]
 [a 25C 55 0 ]
+[a 35C 55 0 ]
 [a 17C 49 54 0 ]
-[a 7C 54 0 ]
+[a 7C 48 54 0 ]
 [a 24C 54 0 ]
+[a 34C 54 0 ]
 [a 16C 49 53 0 ]
-[a 6C 53 0 ]
+[a 6C 48 53 0 ]
 [a 23C 53 0 ]
+[a 33C 53 0 ]
 [a 15C 49 52 0 ]
-[a 5C 52 0 ]
+[a 5C 48 52 0 ]
 [a 22C 52 0 ]
+[a 32C 52 0 ]
 [a 14C 49 51 0 ]
-[a 4C 51 0 ]
+[a 4C 48 51 0 ]
 [a 21C 51 0 ]
+[a 31C 51 0 ]
 [a 13C 49 50 0 ]
-[a 3C 50 0 ]
+[a 3C 48 50 0 ]
 [a 20C 50 0 ]
+[a 30C 50 0 ]
 [a 12C 49 49 0 ]
-[a 2C 49 0 ]
+[a 2C 48 49 0 ]
 [a 19C 49 0 ]
+[a 29C 49 0 ]
 [a 11C 49 48 0 ]
-[a 1C 48 0 ]
+[a 1C 48 48 0 ]
 [a 18C 48 0 ]
+[a 28C 48 0 ]

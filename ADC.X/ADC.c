@@ -28,41 +28,43 @@
 
 
 #define _XTAL_FERQ 8000000
+
+//Variables de codigo
 int Coversion;
 int z;
 int a;
-
+//Codigo de dely explicado y creado por el profesor
 void delay_ms (unsigned int dms){
     for (int i = 0; i<dms; i++){
         for(int j = 0; j<255; j++);
     }
 }
-
+//codigo de interrupciones
 void __interrupt () isr(void){
     
-    if (PIR1bits.ADIF == 1){
+    if (PIR1bits.ADIF == 1){//interrupcion de la conversion del ADC
         Coversion = ADRESH;
-        ADCON0bits.GO_DONE = 1;
+        ADCON0bits.GO_DONE = 1;//nit go done del ADC
         PIR1bits.ADIF = 0;
     }
     
-    if (PIR1bits.SSPIF == 1){
+    if (PIR1bits.SSPIF == 1){//La larguisima interrupcion del I2C
         SSPCONbits.CKP = 0;
-        if ((SSPCONbits.SSPOV)||(SSPCONbits.WCOL)){
-            z = SSPBUF;
+        if ((SSPCONbits.SSPOV)||(SSPCONbits.WCOL)){//Revision de colision y de transimison de data del I2C para ver si no ocurrio ningun accidente
+            z = SSPBUF;//Valor del BUFFER guardado en z
             SSPCONbits.SSPOV = 0;
             SSPCONbits.WCOL = 0;
             SSPCONbits.CKP = 1;
         }
         
-        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {/// segunda revision + espera de condiciones indicadas para transmitir datos
             z = SSPBUF;                 
             PIR1bits.SSPIF = 0;         
             SSPCONbits.CKP = 1;         
             while(!SSPSTATbits.BF);     
             a = SSPBUF;             
             __delay_us(250);
-        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){//valor del Slave guadrdado en buffer para ser mandado al master
             z = SSPBUF;
             BF = 0;
             SSPBUF = Coversion;
@@ -76,7 +78,7 @@ void __interrupt () isr(void){
 }
 
 
-void SET (void){
+void CONFIGS (void){//configuracion del PIC para el I2c y El ADC
     TRISA = 0b00000001;
     ANSEL = 0b00000001;
     TRISB = 0;
@@ -85,17 +87,17 @@ void SET (void){
     delay_ms(50);
     
     PIE1bits.ADIE = 1;
-    PIR1bits.ADIF = 0;
+    PIR1bits.ADIF = 0;//Banderas del ADC
     
-    I2C_Slave_Init(0x30);
+    I2C_Slave_Init(0x30);//direccion del Pic slave
     
     ADCON0bits.GO_DONE = 1;
     
 }
 
 
-void main(void) {
-    SET();
+void main(void) {//main
+    CONFIGS();
     while(1){
     PORTB = Coversion;
     }

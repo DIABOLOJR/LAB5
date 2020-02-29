@@ -1,6 +1,6 @@
 #include "ADC.h"
 #include <xc.h>
-int a;
+int a;// Seleccion de canal de ADC.
 void ADC (int a){
     switch (a){
         case 0:

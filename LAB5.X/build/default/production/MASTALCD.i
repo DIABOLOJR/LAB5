@@ -2684,6 +2684,7 @@ void clean (void);
 void ON (char valor1);
 void LCDCONT (int x, int z);
 void POTENCIOMETRO (uint8_t result);
+void FOTORESIS (uint8_t result);
 # 26 "MASTALCD.c" 2
 
 
@@ -2691,7 +2692,7 @@ void POTENCIOMETRO (uint8_t result);
 
 int POT;
 int CONT;
-int TEMP;
+int FOTO;
 
 
 void Properties (void){
@@ -2706,32 +2707,37 @@ void main(void) {
     clean();
     lcddirection(0,1,"Estuardo Mancio");
     lcddirection(5,2,"18027");
+    delay_ms(130);
+    lcddirection(0,1,"LABORATORIO 5  ");
+    lcddirection(5,2,"I2C  ");
     delay_ms(500);
-    lcddirection(0,1," ADC CONT FOTO");
-    lcddirection(0,2,"                ");
+    lcddirection(0,1,"ADC  COUNTER FOT");
+    lcddirection(0,2," .  V       .  V");
     Properties();
+
     while(1){
-    I2C_Master_Start();
-    I2C_Master_Write(0x31);
-    POT = I2C_Master_Read(0);
-    I2C_Master_Stop();
+        I2C_Master_Start();
+        I2C_Master_Write(0x31);
+        POT = I2C_Master_Read(0);
+        I2C_Master_Stop();
 
-    delay_ms(20);
+        delay_ms(20);
 
-    I2C_Master_Start();
-    I2C_Master_Write(0x33);
-    CONT = I2C_Master_Read(0);
-    I2C_Master_Stop();
+        I2C_Master_Start();
+        I2C_Master_Write(0x33);
+        CONT = I2C_Master_Read(0);
+        I2C_Master_Stop();
 
-    delay_ms(20);
+        delay_ms(20);
 
-    I2C_Master_Start();
-    I2C_Master_Write(0x55);
-    TEMP = I2C_Master_Read(0);
-    I2C_Master_Stop();
-    delay_ms(20);
+        I2C_Master_Start();
+        I2C_Master_Write(0x35);
+        FOTO = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        delay_ms(20);
 
-    LCDCONT(6,CONT);
-    POTENCIOMETRO(POT);
+        LCDCONT(7,CONT);
+        POTENCIOMETRO(POT);
+        FOTORESIS(FOTO);
     }
 }

@@ -2647,6 +2647,7 @@ void clean (void);
 void ON (char valor1);
 void LCDCONT (int x, int z);
 void POTENCIOMETRO (uint8_t result);
+void FOTORESIS (uint8_t result);
 # 7 "LibreriaLCD.c" 2
 
 
@@ -2738,34 +2739,34 @@ void LCDCONT (int x, int z){
 
     switch (z) {
         case 0:
-            lcddirection (x,2,"0");
+            lcddirection (x,2,"00");
             break;
         case 1:
-            lcddirection (x,2,"1");
+            lcddirection (x,2,"01");
             break;
         case 2:
-            lcddirection (x,2,"2");
+            lcddirection (x,2,"02");
             break;
         case 3:
-            lcddirection (x,2,"3");
+            lcddirection (x,2,"03");
             break;
         case 4:
-            lcddirection (x,2,"4");
+            lcddirection (x,2,"04");
             break;
         case 5:
-            lcddirection (x,2,"5");
+            lcddirection (x,2,"05");
             break;
         case 6:
-            lcddirection (x,2,"6");
+            lcddirection (x,2,"06");
             break;
         case 7:
-            lcddirection (x,2,"7");
+            lcddirection (x,2,"07");
             break;
         case 8:
-            lcddirection (x,2,"8");
+            lcddirection (x,2,"08");
             break;
         case 9:
-            lcddirection (x,2,"9");
+            lcddirection (x,2,"09");
             break;
         case 10:
             lcddirection (x,2,"10");
@@ -2811,6 +2812,58 @@ void POTENCIOMETRO (uint8_t result){
         }
         if (i == 2) {
             coordenada = 3;
+        }
+        if (valor == 0){
+            lcddirection(coordenada,2,"0");
+        }
+        if (valor == 1){
+            lcddirection(coordenada,2,"1");
+        }
+        if (valor == 2){
+            lcddirection(coordenada,2,"2");
+        }
+        if (valor == 3){
+            lcddirection(coordenada,2,"3");
+        }
+        if (valor == 4){
+            lcddirection(coordenada,2,"4");
+        }
+        if (valor == 5){
+            lcddirection(coordenada,2,"5");
+        }
+        if (valor == 6){
+            lcddirection(coordenada,2,"6");
+        }
+        if (valor == 7){
+            lcddirection(coordenada,2,"7");
+        }
+        if (valor == 8){
+            lcddirection(coordenada,2,"8");
+        }
+        if (valor == 9){
+            lcddirection(coordenada,2,"9");
+        }
+    }
+}
+
+void FOTORESIS (uint8_t result){
+    if (result>=250){result = 250;}
+    uint8_t valor = 0;
+    uint8_t coordenada = 0;
+    uint8_t unidades = (result - (result % 50))/50;
+    uint8_t decimas = ((result %50) -((result %50)%5))/5;
+    uint8_t centesimas = (((result %50)%5) -(((result %50)%5)%1))*2;
+    int numero[] = {unidades,decimas,centesimas};
+    for (int i=0; i<3;i++){
+        valor = numero[i];
+        if (i == 0) {
+            coordenada = 11;
+        }
+        if (i == 1) {
+            coordenada = 13;
+        }
+        if (i == 2) {
+            coordenada = 14;
         }
         if (valor == 0){
             lcddirection(coordenada,2,"0");

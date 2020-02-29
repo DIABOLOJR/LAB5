@@ -32,5 +32,5 @@
 #define	_ADC_H
 
 #include <xc.h> 
-void ADC (int a);
+void ADC (int a);/*Funcion de canal de ADC*/
 #endif	/* XC_HEADER_TEMPLATE_H */
